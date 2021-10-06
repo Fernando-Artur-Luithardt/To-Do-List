@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>ToDoList</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                background-color:#2D3957;
+                color: white;
+                height: 100vh;
+                display: grid;
+                place-items: center;
+            }
+            .container{
+                background-color: black;
+                padding: 20px;
+                border-radius: 15px;
+            }
+            h1{
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    
+    <body>
+
+        <div class="container">
+
+            <h1>Lista De Tarefas</h1>
+
+            <ul id="lista"> 
+            
+            </ul>
+            <input id="texto" type="text">
+            <button onclick="add()">adicionar</button>
+
+        </div>
+
+        <script>
+
+            const inputElement = document.getElementById("texto")
+            inputElement.addEventListener("keyup", function(e){
+                if (e.keyCode === 13) {
+                    add()
+                }
+            })
+
+            function add()  {
+                //Pegar a nova Tarefa
+                const novatarefa = document.getElementById("texto").value
+                //analisar se a caixa está vazia
+                if(novatarefa === "") return
+                //criar um novo elemento<li>
+                const li = document.createElement("li")
+                //colocar nova tarefa dentro do novo <li>
+                li.innerText = novatarefa
+                //adicionar o novo elemento <li> na <ul> existente
+                const ul = document.getElementById("lista")
+                ul.appendChild(li)
+                //Limpar o imput
+                document.getElementById("texto").value = ""
+
+            }
+
+            
+
+
+
+        </script>
+
+
+    </body>
+
+
+</html>
+
